@@ -17,7 +17,10 @@ module.exports = (sequelize, DataTypes) => {
     nome: DataTypes.STRING,
     pergunta: DataTypes.STRING,
     resposta: DataTypes.STRING,
-    ativo: DataTypes.BOOLEAN
+    ativo: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true,
+    }
   }, {
     sequelize,
     modelName: 'Cards',
