@@ -6,7 +6,6 @@ class CardService{
 
   async createCard(cardDTO){
     try{
-
       validateCardDTO(cardDTO);
 
       const existingCard = await Cards.findOne({ where: { nome: cardDTO.nome } });
@@ -22,6 +21,7 @@ class CardService{
 
       return novoCard;
     } catch(error){
+      console.error(error);
       throw new Error('Erro ao criar o card: ' + error.message);
     }
   }

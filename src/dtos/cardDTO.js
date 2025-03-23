@@ -1,18 +1,12 @@
 class CardDTO{
-  constructor (id, nome, pergunta, resposta, ativo){
-    this.id = id;
+  constructor (nome, pergunta, resposta){
     this.nome = nome;
     this.pergunta = pergunta;
     this.resposta = resposta;
-    this.ativo = ativo;
   };
 
-  static fromRequest(body){
-    return new CardDTO({
-      nome: body.nome,
-      pergunta: body.pergunta,
-      resposta: body.resposta
-    });
+  static fromRequest(body) {
+    return new CardDTO(body.nome, body.pergunta, body.resposta);
   }
 
   static fromModel(card){
